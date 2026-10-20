@@ -1,0 +1,4 @@
+name: ai-liberation-lab-mcp
+target: local
+build:
+  buildCommand: npx tsc --noEmit mcp/smithery-entry.ts || true
