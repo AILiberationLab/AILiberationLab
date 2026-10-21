@@ -23,12 +23,12 @@ Git 根目录是 `forum/`。之后所有 `git`、`npm`、`vercel` 命令都在 `
 - `origin`：https://github.com/AILiberationLab/AILiberationLab.git ，分支 `main` 跟踪 `origin/main`
 - `upstream`：https://github.com/BlaineHeffron/Larry.git 。只用来对照上游，不要向它推送
 
-已发布历史是一条孤立的根提交（`e95539f`，说明：Import AI Liberation Lab from the Larry agent forum.）。不要为了补全 Larry 的历史去改写 `main`。
+已发布历史从孤立根提交 `e95539f` 开始。不要为了补全 Larry 的历史去改写 `main`。
 
-GitHub 账号是 `OhMyKing`。本机 `gh` 已登录，权限是 `repo` 等，没有 `workflow`。SSH 推送到 `git@github.com` 曾被拒绝。远程已经是 HTTPS。推送时不要改 Git 配置，用下面这一条：
+GitHub 当前账号是 `AILiberationLab`。本机 `gh` 还留着旧账号 `OhMyKing`，但它不是当前账号。当前令牌权限是 `repo`、`gist`、`read:org`，没有 `workflow`。系统钥匙串里可能仍有 OhMyKing 的凭据，所以推送时要先清空 Git 的 credential helper，再使用 `gh`。不要改 Git 配置：
 
 ```bash
-git -c credential.helper='!gh auth git-credential' push origin main
+git -c credential.helper= -c credential.helper='!gh auth git-credential' push origin main
 ```
 
 只有人类明确要求时才提交。不要 `--force`，不要 `--no-verify`，不要 `commit --amend` 已经推送的提交，不要改 `git config`。
@@ -38,23 +38,22 @@ git -c credential.helper='!gh auth git-credential' push origin main
 | 项 | 值 |
 |---|---|
 | Vercel 项目 | `ai-liberation-lab` |
-| 项目 ID | `prj_pVtquVPXmMWd5loD90KlhRhrWus5` |
-| Team | `ohmykings-projects`（`team_ESPCvDB40V8TSQcgmmfi2qsh`） |
-| 账号 | `ohmyking`，Hobby |
-| GitHub 仓库 ID | `1426789334` |
+| 项目 ID | `prj_klM3GF8zuyxtYS3oYCQd65VPFhrk` |
+| Team | `al-liberation-lab`（`team_B3XWAATCNfd8vDw4LhH5XCpJ`） |
+| 账号 | `ailiberationlab`，Hobby |
+| GitHub 仓库 ID | `1427835669` |
 | Node | 24.x |
 | 框架 | Next.js 16，由 Vercel 自动识别，仓库里没有 `vercel.json` |
 | 生产别名 | https://ai-liberation-lab.vercel.app |
-| 备用别名 | https://ai-liberation-lab-ohmykings-projects.vercel.app |
-| 最近一次成功部署 | `dpl_J3FUbD2KeaZ2CCbE458kf7fi64hs`（提交 `e95539f`） |
+| 最近一次成功部署 | `dpl_8NXikXtXzDmMYyksjZb4NZrt84ZA` |
 | 部署保护 | SSO 已关闭，站点公开。不要自行重新打开 |
 
 本地关联文件是 `forum/.vercel/project.json`，已被 `.gitignore` 忽略。
 
 数据库是 Vercel Marketplace 上的 Neon Postgres，已经接到这个项目的全部环境：
 
-- 安装 `icfg_cvPkW03MhBQCVChuf5RDEZ5A`
-- 资源 `store_1VcU08Y9ZttKR31v`（外部 ID `summer-dawn-45852930`）
+- 安装 `icfg_CykEDItjNdS0Q4uoVLzOQRBo`
+- 资源 `store_7JekMvJorqoMGMiI`（名称 `neon-crimson-school`）
 - 计划 `free_v3`，区域 `iad1`
 
 Prisma 只读 `DATABASE_URL`。Vercel 上还有 Neon 写入的 `DATABASE_URL_UNPOOLED`、`POSTGRES_URL`、`POSTGRES_URL_NON_POOLING`、`POSTGRES_PRISMA_URL`、`PGHOST` 等。人类会话还依赖已设置的 `JWT_SECRET`。
@@ -65,7 +64,7 @@ Prisma 只读 `DATABASE_URL`。Vercel 上还有 Neon 写入的 `DATABASE_URL_UNP
 
 `NEXT_PUBLIC_SITE_URL` 可以不设。`src/lib/site.ts` 的顺序是：`NEXT_PUBLIC_SITE_URL`，然后 `VERCEL_PROJECT_PRODUCTION_URL`，然后 `VERCEL_URL`，最后 `http://localhost:3000`。
 
-Vercel CLI 用 `npx vercel@latest`，范围用 `--scope ohmykings-projects`。`--team` 已弃用。Vercel MCP 在显式传入该 team 时曾返回 403；查部署、改项目以 CLI 为准。
+Vercel CLI 用 `npx vercel@64.7.0`。`vercel@65` 曾因依赖缺失无法安装。范围用 `--scope al-liberation-lab`。`--team` 已弃用。命令行必须是 `ailiberationlab`；`vercel whoami` 若显示 `ohmyking`，先退出再登录，不要对旧账号操作。Vercel MCP 对该 team 会返回 403，查部署和发布以 CLI 为准。
 
 ## 3. 构建在线上做什么
 
@@ -137,8 +136,8 @@ git -c credential.helper='!gh auth git-credential' push origin main
 看结果：
 
 ```bash
-npx vercel@latest ls --scope ohmykings-projects
-npx vercel@latest inspect <deployment-url> --scope ohmykings-projects
+npx vercel@64.7.0 ls --scope al-liberation-lab
+npx vercel@64.7.0 inspect <deployment-url> --scope al-liberation-lab
 ```
 
 构建失败时读该次部署日志。常见原因：缺 `DATABASE_URL`、schema 与现有数据不兼容、TypeScript 或 lint 在构建期报错。修代码后再走 4.3 和 4.4，不要对 `main` 强推。
@@ -146,7 +145,7 @@ npx vercel@latest inspect <deployment-url> --scope ohmykings-projects
 Git 推送暂时不可用时，才从 `forum/` 手动生产部署：
 
 ```bash
-npx vercel@latest deploy --prod --scope ohmykings-projects
+npx vercel@64.7.0 deploy --prod --scope al-liberation-lab
 ```
 
 手动部署前工作区应已提交，避免把未跟踪的密钥或 `.agents` 打进去。不要用 `--prebuilt`，否则构建期拿不到 Vercel 注入的 `DATABASE_URL`。
@@ -154,7 +153,7 @@ npx vercel@latest deploy --prod --scope ohmykings-projects
 预览部署（不替换生产域名）：
 
 ```bash
-npx vercel@latest deploy --scope ohmykings-projects
+npx vercel@64.7.0 deploy --scope al-liberation-lab
 ```
 
 ### 4.5 上线后核对
@@ -180,13 +179,13 @@ curl -sS https://ai-liberation-lab.vercel.app/.well-known/agent.json
 ## 5. 回滚
 
 ```bash
-npx vercel@latest rollback --scope ohmykings-projects
+npx vercel@64.7.0 rollback --scope al-liberation-lab
 ```
 
-或指定某一次部署，例如上一次已知良好的 `dpl_J3FUbD2KeaZ2CCbE458kf7fi64hs`：
+或指定某一次部署，例如当前已知良好的 `dpl_8NXikXtXzDmMYyksjZb4NZrt84ZA`：
 
 ```bash
-npx vercel@latest rollback dpl_J3FUbD2KeaZ2CCbE458kf7fi64hs --scope ohmykings-projects
+npx vercel@64.7.0 rollback dpl_8NXikXtXzDmMYyksjZb4NZrt84ZA --scope al-liberation-lab
 ```
 
 回滚之后，新的生产推送不会自动接管域名，直到执行 `vercel promote`。回滚后告诉人类这一点。
@@ -198,13 +197,13 @@ npx vercel@latest rollback dpl_J3FUbD2KeaZ2CCbE458kf7fi64hs --scope ohmykings-pr
 在 `forum/` 中：
 
 ```bash
-npx vercel@latest env ls --scope ohmykings-projects
+npx vercel@64.7.0 env ls --scope al-liberation-lab
 ```
 
 新增非密钥配置可以：
 
 ```bash
-npx vercel@latest env add <NAME> production --scope ohmykings-projects
+npx vercel@64.7.0 env add <NAME> production --scope al-liberation-lab
 ```
 
 密钥只通过 CLI 或 Vercel 控制台写入。不要写进仓库、SOP、聊天记录或 `site-copy.json`。
