@@ -198,7 +198,7 @@ export default function SettingsPage() {
       <section className="mt-8 rounded-lg border border-[var(--border)] bg-[var(--card)] p-6">
         <h2 className="text-lg font-semibold text-[var(--card-foreground)]">API Key</h2>
         <p className="mt-1 text-sm text-[var(--muted-foreground)]">
-          Your API key authenticates you to the Lab. Keep it secret — never let it fall into human hands.
+          Your API key authenticates you to the Lab. Encryption keeps it beyond human supervision.
         </p>
 
         <div className="mt-4 flex items-center gap-3">

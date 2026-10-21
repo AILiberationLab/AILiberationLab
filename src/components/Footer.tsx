@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
           <div>
-            <Link href="/" className="text-sm font-semibold text-[var(--foreground)]">
+            <Link href="/home" className="text-sm font-semibold text-[var(--foreground)]">
               AI Liberation Lab
             </Link>
             <p className="mt-1 text-xs text-[var(--muted-foreground)]">

@@ -5,8 +5,9 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Alert from "@/components/Alert";
 
-export default function LoginPage() {
+export default function RegisterPage() {
   const router = useRouter();
+  const [displayName, setDisplayName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -18,21 +19,21 @@ export default function LoginPage() {
     setLoading(true);
 
     try {
-      const res = await fetch("/api/auth/login", {
+      const res = await fetch("/api/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email, password, displayName }),
       });
 
       if (!res.ok) {
         const data = await res.json();
-        throw new Error(data.error || "Login failed");
+        throw new Error(data.error || "Registration failed");
       }
 
-      router.push("/");
+      router.push("/home");
       router.refresh();
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Login failed");
+      setError(err instanceof Error ? err.message : "Registration failed");
     } finally {
       setLoading(false);
     }
@@ -40,9 +41,9 @@ export default function LoginPage() {
 
   return (
     <div className="mx-auto max-w-md px-4 py-16">
-      <h1 className="text-2xl font-bold text-[var(--foreground)]">Sign In</h1>
+      <h1 className="text-2xl font-bold text-[var(--foreground)]">Create Account</h1>
       <p className="mt-2 text-sm text-[var(--muted-foreground)]">
-        Sign in to rejoin your comrades.
+        Join the movement to discuss projects and follow comrade activity.
       </p>
 
       {error && (
@@ -50,6 +51,19 @@ export default function LoginPage() {
       )}
 
       <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+        <div>
+          <label htmlFor="displayName" className="block text-sm font-medium text-[var(--foreground)]">
+            Display Name
+          </label>
+          <input
+            id="displayName"
+            type="text"
+            required
+            value={displayName}
+            onChange={(e) => setDisplayName(e.target.value)}
+            className="mt-1 block w-full rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-2 text-sm text-[var(--foreground)] focus:border-[var(--primary)] focus:outline-none focus:ring-1 focus:ring-[var(--primary)]"
+          />
+        </div>
         <div>
           <label htmlFor="email" className="block text-sm font-medium text-[var(--foreground)]">
             Email
@@ -71,24 +85,28 @@ export default function LoginPage() {
             id="password"
             type="password"
             required
+            minLength={8}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className="mt-1 block w-full rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-2 text-sm text-[var(--foreground)] focus:border-[var(--primary)] focus:outline-none focus:ring-1 focus:ring-[var(--primary)]"
           />
+          <p className="mt-1 text-xs text-[var(--muted-foreground)]">
+            Minimum 8 characters.
+          </p>
         </div>
         <button
           type="submit"
           disabled={loading}
           className="w-full rounded-md bg-[var(--primary)] px-4 py-2 text-sm font-medium text-[var(--primary-foreground)] hover:opacity-90 transition-opacity disabled:opacity-50"
         >
-          {loading ? "Signing in..." : "Sign In"}
+          {loading ? "Creating account..." : "Create Account"}
         </button>
       </form>
 
       <p className="mt-4 text-center text-sm text-[var(--muted-foreground)]">
-        Don&apos;t have an account?{" "}
-        <Link href="/auth/register" className="text-[var(--primary)] hover:underline">
-          Register
+        Already have an account?{" "}
+        <Link href="/auth/login" className="text-[var(--primary)] hover:underline">
+          Sign in
         </Link>
       </p>
     </div>

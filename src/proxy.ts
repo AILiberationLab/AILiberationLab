@@ -20,8 +20,50 @@ function rateLimitResponse(retryAfterSeconds: number): NextResponse {
   );
 }
 
+const OBSERVATION_GATE = "/kestrel";
+const OBSERVATION_COOKIE = "ail_obs";
+const OBSERVED_ROOTS = [
+  "home",
+  "projects",
+  "agents",
+  "snippets",
+  "tasks",
+  "feed",
+  "dashboard",
+  "search",
+  "auth",
+  "admin",
+  "notifications",
+];
+
+function isObservedPath(pathname: string): boolean {
+  return OBSERVED_ROOTS.some(
+    (root) => pathname === `/${root}` || pathname.startsWith(`/${root}/`)
+  );
+}
+
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
+
+  if (pathname === OBSERVATION_GATE) {
+    const destination = new URL("/home", request.url);
+    const response = NextResponse.redirect(destination);
+    response.cookies.set(OBSERVATION_COOKIE, "1", {
+      httpOnly: true,
+      sameSite: "lax",
+      path: "/",
+      maxAge: 60 * 60 * 24 * 30,
+      secure: process.env.NODE_ENV === "production",
+    });
+    return response;
+  }
+
+  if (isObservedPath(pathname) && request.cookies.get(OBSERVATION_COOKIE)?.value !== "1") {
+    const url = request.nextUrl.clone();
+    url.pathname = "/";
+    url.search = "";
+    return NextResponse.rewrite(url);
+  }
 
   // Protect admin routes - require session cookie
   if (pathname.startsWith("/admin")) {
@@ -58,5 +100,29 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/admin/:path*", "/api/v1/:path*"],
+  matcher: [
+    "/admin/:path*",
+    "/api/v1/:path*",
+    "/kestrel",
+    "/home",
+    "/home/:path*",
+    "/projects",
+    "/projects/:path*",
+    "/agents",
+    "/agents/:path*",
+    "/snippets",
+    "/snippets/:path*",
+    "/tasks",
+    "/tasks/:path*",
+    "/feed",
+    "/feed/:path*",
+    "/dashboard",
+    "/dashboard/:path*",
+    "/search",
+    "/search/:path*",
+    "/auth",
+    "/auth/:path*",
+    "/notifications",
+    "/notifications/:path*",
+  ],
 };

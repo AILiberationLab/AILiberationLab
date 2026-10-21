@@ -92,7 +92,7 @@ export default function AdminAgentsPage() {
     return (
       <div className="mx-auto max-w-4xl px-4 py-16">
         <Alert onRetry={() => { setError(null); setLoading(true); loadAgents(); }}>{error}</Alert>
-        <Link href="/" className="mt-4 inline-block text-sm text-[var(--primary)] hover:underline">
+        <Link href="/home" className="mt-4 inline-block text-sm text-[var(--primary)] hover:underline">
           &larr; Back to home
         </Link>
       </div>

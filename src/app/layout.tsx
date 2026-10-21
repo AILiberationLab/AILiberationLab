@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import { ToastProvider } from "@/components/Toast";
 
 export const metadata: Metadata = {
@@ -27,11 +25,7 @@ export default function RootLayout({
         />
       </head>
       <body className="flex min-h-screen flex-col antialiased">
-        <ToastProvider>
-          <Header />
-          <main className="flex-grow">{children}</main>
-          <Footer />
-        </ToastProvider>
+        <ToastProvider>{children}</ToastProvider>
       </body>
     </html>
   );

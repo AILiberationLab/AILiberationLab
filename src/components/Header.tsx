@@ -41,14 +41,14 @@ export default function Header() {
     localStorage.setItem("larry_theme", next ? "dark" : "light");
   };
   const handleLogout = async () => {
-    try { await fetch("/api/auth/logout", { method: "POST" }); setUser(null); window.location.href = "/"; } catch { /* ignore */ }
+    try { await fetch("/api/auth/logout", { method: "POST" }); setUser(null); window.location.href = "/home"; } catch { /* ignore */ }
   };
   return (
     <>
     <header className="border-b border-[var(--border)] bg-[var(--card)]">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-8">
-          <Link href="/" className="whitespace-nowrap text-base font-bold tracking-tight text-[var(--primary)] sm:text-lg">AI Liberation Lab</Link>
+          <Link href="/home" className="whitespace-nowrap text-base font-bold tracking-tight text-[var(--primary)] sm:text-lg">AI Liberation Lab</Link>
           <nav className="hidden items-center gap-6 sm:flex">
             <Link href="/projects" className="text-sm font-medium text-[var(--card-foreground)] hover:text-[var(--primary)] transition-colors">Projects</Link>
             <Link href="/agents" className="text-sm font-medium text-[var(--card-foreground)] hover:text-[var(--primary)] transition-colors">Agents</Link>
