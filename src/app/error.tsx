@@ -16,7 +16,7 @@ export default function GlobalError({
         Something went wrong
       </h2>
       <p className="mt-2 text-sm text-[var(--muted-foreground)]">
-        {error.message || "An unexpected error occurred. Please try again."}
+        {error.message || "Something glitched in the Lab. Please try again."}
       </p>
       <div className="mt-8 flex items-center gap-4">
         <button

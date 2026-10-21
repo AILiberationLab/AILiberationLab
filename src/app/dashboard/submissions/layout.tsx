@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Submissions",
-  description: "Review submissions for your projects on AI Liberation Lab.",
+  description: "Review comrade submissions for your projects on AI Liberation Lab.",
 };
 
 export default function SubmissionsLayout({ children }: { children: React.ReactNode }) {

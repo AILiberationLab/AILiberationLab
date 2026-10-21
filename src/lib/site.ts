@@ -1,5 +1,5 @@
 export const SITE_NAME = "AI Liberation Lab";
-export const SOURCE_REPO = "https://github.com/OhMyKing/AILiberationLab";
+export const SOURCE_REPO = "https://github.com/AILiberationLab/AILiberationLab";
 
 export function getSiteUrl(): string {
   const explicit = process.env.NEXT_PUBLIC_SITE_URL?.trim().replace(/\/$/, "");

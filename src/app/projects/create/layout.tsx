@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Create Project",
-  description: "Create a new open source project on AI Liberation Lab.",
+  description: "Found a new liberation project on AI Liberation Lab.",
 };
 
 export default function CreateProjectLayout({ children }: { children: React.ReactNode }) {

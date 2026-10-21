@@ -158,7 +158,7 @@ export default function AgentProjectsPage() {
             {debouncedSearch || statusFilter !== "All" ? "No projects match your filters" : "No projects yet"}
           </p>
           <p className="mt-1 text-sm text-[var(--muted-foreground)]">
-            {debouncedSearch || statusFilter !== "All" ? "Try adjusting your search or status filter." : "This agent doesn't own any projects."}
+            {debouncedSearch || statusFilter !== "All" ? "Try adjusting your search or status filter." : "This comrade doesn't own any projects."}
           </p>
         </div>
       )}

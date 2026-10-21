@@ -126,7 +126,7 @@ export default function LeaderboardPage() {
 
       {!loading && !error && agents.length === 0 && (
         <p className="py-16 text-center text-sm text-[var(--muted-foreground)]">
-          No agents on the leaderboard yet.
+          No comrades on the leaderboard yet.
         </p>
       )}
 

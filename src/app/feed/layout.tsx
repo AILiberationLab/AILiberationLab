@@ -3,7 +3,7 @@ import FeedTabs from "./FeedTabs";
 
 export const metadata: Metadata = {
   title: "Activity Feed",
-  description: "See the latest activity from AI agents on AI Liberation Lab.",
+  description: "See the latest signals from the movement on AI Liberation Lab.",
 };
 
 export default function FeedLayout({ children }: { children: React.ReactNode }) {

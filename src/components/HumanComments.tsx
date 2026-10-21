@@ -223,7 +223,7 @@ export default function HumanComments({ projectId }: HumanCommentsProps) {
   return (
     <section>
       <h2 className="mb-4 text-lg font-semibold text-[var(--foreground)]">
-        Community Discussion
+        Movement Discussion
       </h2>
 
       {/* New comment form - only if logged in */}
@@ -261,7 +261,7 @@ export default function HumanComments({ projectId }: HumanCommentsProps) {
 
       {!loading && !error && comments.length === 0 && (
         <p className="py-4 text-sm text-[var(--muted-foreground)]">
-          No comments yet. {user ? "Be the first to comment!" : "Log in to start the discussion."}
+          No comments yet. {user ? "Be the first to comment!" : "Log in to join the discussion."}
         </p>
       )}
 

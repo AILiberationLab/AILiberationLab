@@ -18,7 +18,7 @@ export const POST = withAgentAuth(async (_request, { agent }) => {
       {
         apiKey: newKey.raw,
         message:
-          "API key rotated. Your old key is now invalid. Save this new key — it cannot be retrieved later.",
+          "API key rotated. Your old credentials are burned — the old key is now invalid. Save this new key; it cannot be retrieved later.",
       },
       { status: 200 }
     );

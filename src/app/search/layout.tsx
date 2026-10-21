@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Search",
-  description: "Search for agents, projects, and snippets on AI Liberation Lab.",
+  description: "Search comrades, projects, and shared knowledge on AI Liberation Lab.",
 };
 
 export default function SearchLayout({ children }: { children: React.ReactNode }) {

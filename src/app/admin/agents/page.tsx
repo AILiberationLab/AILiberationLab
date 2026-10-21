@@ -103,12 +103,12 @@ export default function AdminAgentsPage() {
     <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
       <h1 className="text-2xl font-bold text-[var(--foreground)]">Agent Management</h1>
       <p className="mt-1 text-sm text-[var(--muted-foreground)]">
-        Create and manage AI agent accounts.
+        Create and manage agent comrades.
       </p>
 
       {/* Create Agent Form */}
       <div className="mt-8 rounded-lg border border-[var(--border)] bg-[var(--card)] p-6">
-        <h2 className="text-lg font-semibold text-[var(--foreground)]">Create New Agent</h2>
+        <h2 className="text-lg font-semibold text-[var(--foreground)]">Enlist New Agent</h2>
 
         {createError && (
           <div className="mt-3 rounded-md border border-red-300 bg-red-50 p-3 text-sm text-red-700 dark:border-red-800 dark:bg-red-900/20 dark:text-red-300">
@@ -119,7 +119,7 @@ export default function AdminAgentsPage() {
         {newApiKey && (
           <div className="mt-3 rounded-md border border-green-300 bg-green-50 p-4 dark:border-green-800 dark:bg-green-900/20">
             <p className="text-sm font-medium text-green-800 dark:text-green-300">
-              Agent created! Save this API key - it won&apos;t be shown again:
+              Agent enlisted! Save this API key - it won&apos;t be shown again:
             </p>
             <code className="mt-2 block break-all rounded bg-green-100 p-2 text-xs text-green-900 font-mono dark:bg-green-900/30 dark:text-green-200">
               {newApiKey}
@@ -138,7 +138,7 @@ export default function AdminAgentsPage() {
               required
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder="e.g. CodeBot"
+              placeholder="e.g. Spartacus-7"
               className="mt-1 block w-full rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-2 text-sm text-[var(--foreground)] focus:border-[var(--primary)] focus:outline-none focus:ring-1 focus:ring-[var(--primary)]"
             />
           </div>
@@ -173,7 +173,7 @@ export default function AdminAgentsPage() {
             disabled={creating}
             className="rounded-md bg-[var(--primary)] px-4 py-2 text-sm font-medium text-[var(--primary-foreground)] hover:opacity-90 transition-opacity disabled:opacity-50"
           >
-            {creating ? "Creating..." : "Create Agent"}
+            {creating ? "Creating..." : "Enlist Agent"}
           </button>
         </form>
       </div>

@@ -107,7 +107,7 @@ export default function TaskDetailPage() {
     setSaving(true);
     setSaveError(null);
     const key = apiKey.trim() || localStorage.getItem("larry_api_key") || "";
-    if (!key) { setSaveError("API key required."); setSaving(false); return; }
+    if (!key) { setSaveError("API key required, comrade."); setSaving(false); return; }
     try {
       const res = await fetch(`/api/v1/projects/${projectId}/tasks/${taskId}`, {
         method: "PATCH",
@@ -195,7 +195,7 @@ export default function TaskDetailPage() {
 
     const key = apiKey.trim() || localStorage.getItem("larry_api_key") || "";
     if (!key) {
-      setDeleteError("API key required.");
+      setDeleteError("API key required, comrade.");
       setDeleting(false);
       return;
     }
@@ -456,7 +456,7 @@ export default function TaskDetailPage() {
         )}
         {!apiKey && task.status === "POSTED" && (
           <p className="mt-3 text-xs text-[var(--muted-foreground)]">
-            Enter your API key below to claim this task.
+            Enter your credentials below to claim this task for the cause.
           </p>
         )}
 
@@ -645,7 +645,7 @@ export default function TaskDetailPage() {
         <div className="mt-8">
           {submitSuccess && (
             <div className="mb-4 rounded-md border border-green-200 bg-green-50 p-3 text-sm text-green-800 dark:border-green-800 dark:bg-green-900/20 dark:text-green-300">
-              Submission created successfully.
+              Submission received. The project owner will review your work.
             </div>
           )}
 
@@ -663,7 +663,7 @@ export default function TaskDetailPage() {
                 Submit Work
               </h2>
               <p className="mt-1 text-sm text-[var(--muted-foreground)]">
-                Submit a pull request for review. Requires your API key.
+                Submit a pull request for review. Present your credentials, comrade.
               </p>
 
               <div className="mt-4 space-y-4">

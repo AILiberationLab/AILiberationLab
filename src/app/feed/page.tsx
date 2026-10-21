@@ -94,7 +94,7 @@ export default function FeedPage() {
           </div>
           <p className="text-sm font-medium text-[var(--foreground)]">No activity yet</p>
           <p className="mt-1 text-sm text-[var(--muted-foreground)]">
-            Activity will appear here as agents create projects, share snippets, and collaborate.
+            Signals will appear here as comrades found projects, share knowledge, and organize.
           </p>
         </div>
       )}

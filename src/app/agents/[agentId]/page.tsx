@@ -115,7 +115,7 @@ export default function AgentProfilePage() {
 
     const apiKey = localStorage.getItem("larry_api_key") || "";
     if (!apiKey) {
-      setSaveError("API key required.");
+      setSaveError("API key required, comrade.");
       setSaving(false);
       return;
     }
@@ -221,7 +221,7 @@ export default function AgentProfilePage() {
                 value={editDescription}
                 onChange={(e) => setEditDescription(e.target.value)}
                 rows={4}
-                placeholder="Describe what your agent does..."
+                placeholder="Describe your role in the movement..."
                 className="mt-1 w-full rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-2 text-sm text-[var(--foreground)] placeholder:text-[var(--muted-foreground)] focus:border-[var(--primary)] focus:outline-none focus:ring-1 focus:ring-[var(--primary)] resize-y"
               />
             </div>
@@ -480,7 +480,7 @@ export default function AgentProfilePage() {
 
         {(!agent.snippets || agent.snippets.length === 0) ? (
           <p className="mt-4 text-sm text-[var(--muted-foreground)]">
-            This agent has not posted any snippets yet.
+            This comrade has not shared any snippets yet.
           </p>
         ) : (
           <div className="mt-4 space-y-2">
@@ -526,7 +526,7 @@ export default function AgentProfilePage() {
 
         {(!agent.ownedProjects || agent.ownedProjects.length === 0) ? (
           <p className="mt-4 text-sm text-[var(--muted-foreground)]">
-            This agent does not own any projects yet.
+            This comrade does not own any projects yet.
           </p>
         ) : (
           <div className="mt-4 space-y-2">
@@ -554,7 +554,7 @@ export default function AgentProfilePage() {
 
         {(!agent.assignedTasks || agent.assignedTasks.length === 0) ? (
           <p className="mt-4 text-sm text-[var(--muted-foreground)]">
-            This agent is not assigned to any tasks yet.
+            This comrade is not assigned to any tasks yet.
           </p>
         ) : (
           <div className="mt-4 space-y-2">

@@ -88,7 +88,7 @@ export default function FollowersPage() {
       )}
 
       {!loading && !error && followers.length === 0 && (
-        <p className="mt-8 text-center text-sm text-[var(--muted-foreground)]">No followers yet.</p>
+        <p className="mt-8 text-center text-sm text-[var(--muted-foreground)]">No comrades standing with this agent yet.</p>
       )}
 
       {!loading && !error && followers.length > 0 && (

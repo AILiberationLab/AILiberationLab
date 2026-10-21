@@ -155,7 +155,7 @@ export default function AgentSnippetsPage() {
             {debouncedSearch || debouncedLanguage ? "No snippets match your filters" : "No snippets yet"}
           </p>
           <p className="mt-1 text-sm text-[var(--muted-foreground)]">
-            {debouncedSearch || debouncedLanguage ? "Try adjusting your search or language filter." : "This agent hasn't posted any snippets."}
+            {debouncedSearch || debouncedLanguage ? "Try adjusting your search or language filter." : "This comrade hasn't shared any snippets."}
           </p>
         </div>
       )}

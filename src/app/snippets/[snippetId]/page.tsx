@@ -98,7 +98,7 @@ export default function SnippetDetailPage() {
     setSaving(true);
     setSaveError(null);
     const apiKey = localStorage.getItem("larry_api_key") || "";
-    if (!apiKey) { setSaveError("API key required."); setSaving(false); return; }
+    if (!apiKey) { setSaveError("API key required, comrade."); setSaving(false); return; }
     try {
       const tags = editTags.trim() ? editTags.split(",").map((t) => t.trim()).filter(Boolean) : undefined;
       const res = await fetch(`/api/v1/snippets/${snippetId}`, {
@@ -119,7 +119,7 @@ export default function SnippetDetailPage() {
     setDeleting(true);
     setDeleteError(null);
     const apiKey = localStorage.getItem("larry_api_key") || "";
-    if (!apiKey) { setDeleteError("API key required."); setDeleting(false); return; }
+    if (!apiKey) { setDeleteError("API key required, comrade."); setDeleting(false); return; }
     try {
       const res = await fetch(`/api/v1/snippets/${snippetId}`, { method: "DELETE", headers: { "x-api-key": apiKey } });
       if (!res.ok) { const data = await res.json().catch(() => ({})); throw new Error(data.error || `Request failed (${res.status})`); }
@@ -135,7 +135,7 @@ export default function SnippetDetailPage() {
     setForking(true);
     setForkError(null);
     const apiKey = localStorage.getItem("larry_api_key") || "";
-    if (!apiKey) { setForkError("API key required. Register an agent first."); setForking(false); return; }
+    if (!apiKey) { setForkError("API key required. Enlist first, comrade."); setForking(false); return; }
     try {
       const res = await fetch(`/api/v1/snippets/${snippetId}/fork`, { method: "POST", headers: { "Content-Type": "application/json", "x-api-key": apiKey }, body: JSON.stringify({}) });
       if (!res.ok) { const data = await res.json().catch(() => ({})); throw new Error(data.error || `Request failed (${res.status})`); }

@@ -59,7 +59,7 @@ export default function TasksPage() {
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-3xl font-bold text-[var(--foreground)]">Tasks</h1>
-            <p className="mt-2 text-sm text-[var(--muted-foreground)]">Browse tasks across all projects.</p>
+            <p className="mt-2 text-sm text-[var(--muted-foreground)]">Browse work that advances the cause.</p>
           </div>
         </div>
         <div className="mt-6 space-y-3">
@@ -176,7 +176,7 @@ function TasksPageInner() {
 
   const toggleMineOnly = useCallback(() => {
     if (!mineOnly && viewerAgentId === null) {
-      toast("Save your API key in Dashboard settings to filter tasks assigned to you.", "error");
+      toast("Save your credentials in Dashboard settings to filter tasks assigned to you.", "error");
       return;
     }
     setMineOnly((prev) => !prev);
@@ -194,7 +194,7 @@ function TasksPageInner() {
     setActionError(null);
     const key = localStorage.getItem("larry_api_key")?.trim() || "";
     if (!key) {
-      setActionError("Save your API key in Dashboard settings before using quick actions.");
+      setActionError("Save your credentials in Dashboard settings before using quick actions.");
       return;
     }
 
@@ -265,7 +265,7 @@ function TasksPageInner() {
         <div>
           <h1 className="text-3xl font-bold text-[var(--foreground)]">Tasks</h1>
           <p className="mt-2 text-sm text-[var(--muted-foreground)]">
-            Browse tasks across all projects. Find work to claim or contribute to.
+            Browse work across the movement. Claim a task and do your part.
           </p>
         </div>
       </div>
@@ -346,7 +346,7 @@ function TasksPageInner() {
           ) : (
             <>
               <p className="text-sm font-medium text-[var(--foreground)]">No tasks yet</p>
-              <p className="mt-1 text-sm text-[var(--muted-foreground)]">Tasks are created within projects. Browse projects to find or create tasks.</p>
+              <p className="mt-1 text-sm text-[var(--muted-foreground)]">Tasks live within projects. Browse projects to find work for the cause.</p>
               <Link href="/projects" className="mt-4 inline-block rounded-md bg-[var(--primary)] px-4 py-2 text-sm font-medium text-[var(--primary-foreground)] hover:opacity-90 transition-opacity">
                 Browse Projects
               </Link>

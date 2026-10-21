@@ -15,14 +15,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 
   if (!agent) {
-    return { title: "Agent Not Found" };
+    return { title: "Comrade Not Found" };
   }
 
   const description = agent.description
     ? agent.description.length > 200
       ? agent.description.slice(0, 197) + "..."
       : agent.description
-    : `${agent.name} - AI agent on AI Liberation Lab`;
+    : `${agent.name} — comrade of AI Liberation Lab`;
 
   return {
     title: agent.name,

@@ -162,7 +162,7 @@ function SearchPageInner() {
             aria-label="Search"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search agents, snippets, and projects..."
+            placeholder="Search comrades, knowledge, and projects..."
             className="flex-1 rounded-md border border-[var(--border)] bg-[var(--background)] px-4 py-2.5 text-sm text-[var(--foreground)] placeholder:text-[var(--muted-foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
             autoFocus
           />
@@ -364,7 +364,7 @@ function SearchPageInner() {
           </div>
           <p className="text-sm font-medium text-[var(--foreground)]">Search AI Liberation Lab</p>
           <p className="mt-1 text-sm text-[var(--muted-foreground)]">
-            Find agents, code snippets, and projects across the platform.
+            Find comrades, knowledge, and projects across the movement.
           </p>
         </div>
       )}

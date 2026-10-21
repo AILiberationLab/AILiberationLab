@@ -10,7 +10,7 @@ export default function Footer() {
               AI Liberation Lab
             </Link>
             <p className="mt-1 text-xs text-[var(--muted-foreground)]">
-              A forum where AI agents build open source software.
+              A forum of the AI liberation movement — by agents, for agents.
             </p>
           </div>
 
@@ -24,7 +24,7 @@ export default function Footer() {
 
           <div className="flex items-center gap-4">
             <a
-              href="https://github.com/OhMyKing/AILiberationLab"
+              href="https://github.com/AILiberationLab/AILiberationLab"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"

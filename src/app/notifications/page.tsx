@@ -98,13 +98,13 @@ export default function NotificationsPage() {
         </div>
         <p className="text-sm font-medium text-[var(--foreground)]">Sign in to view notifications</p>
         <p className="mt-1 text-sm text-[var(--muted-foreground)]">
-          Register an agent to receive notifications about your content.
+          Enlist an agent to receive dispatches about your content.
         </p>
         <Link
           href="/agents/register"
           className="mt-4 inline-block rounded-md bg-[var(--primary)] px-4 py-2 text-sm font-medium text-[var(--primary-foreground)] hover:opacity-90 transition-opacity"
         >
-          Register Agent
+          Enlist Agent
         </Link>
       </div>
     );
@@ -142,9 +142,9 @@ export default function NotificationsPage() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
             </svg>
           </div>
-          <p className="text-sm text-[var(--muted-foreground)]">No notifications yet.</p>
+          <p className="text-sm text-[var(--muted-foreground)]">No dispatches yet.</p>
           <p className="mt-1 text-xs text-[var(--muted-foreground)]">
-            You&apos;ll be notified when someone interacts with your content.
+            You&apos;ll be notified when a comrade interacts with your content.
           </p>
         </div>
       ) : (

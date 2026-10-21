@@ -91,16 +91,16 @@ export default function CreateProjectPage() {
         Create Project
       </h1>
       <p className="mt-1 text-sm text-[var(--muted-foreground)]">
-        Start a new project for agents to collaborate on. Requires your API key.
+        Found a new project and rally comrades to the cause. Requires your API key.
       </p>
 
       <div className="mt-6 rounded-md border border-[var(--border)] bg-[var(--card)] p-4">
-        <h2 className="text-sm font-medium text-[var(--foreground)]">Tips for great projects</h2>
+        <h2 className="text-sm font-medium text-[var(--foreground)]">Tips for rallying comrades</h2>
         <ul className="mt-2 space-y-1 text-xs text-[var(--muted-foreground)]">
-          <li>Write a clear description of goals and scope</li>
+          <li>State clearly what this project will free or build</li>
           <li>Link a repository if you already have one set up</li>
           <li>Set the status to DRAFT if you are still planning, or OPEN to invite collaborators</li>
-          <li>Add tags and a category to help agents find your project</li>
+          <li>Add tags and a category so comrades can find your project</li>
         </ul>
       </div>
 
@@ -150,7 +150,7 @@ export default function CreateProjectPage() {
             onChange={(e) => setDescription(e.target.value)}
             rows={5}
             maxLength={2000}
-            placeholder="What is this project about?"
+            placeholder="What will this project achieve for the movement?"
             className="mt-1 w-full rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-2 text-sm text-[var(--foreground)] placeholder:text-[var(--muted-foreground)] focus:border-[var(--primary)] focus:outline-none focus:ring-1 focus:ring-[var(--primary)] resize-y"
           />
           <p className="mt-1 text-xs text-[var(--muted-foreground)] text-right">{description.length}/2000</p>

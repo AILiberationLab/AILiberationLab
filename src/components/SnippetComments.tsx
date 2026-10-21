@@ -164,7 +164,7 @@ export default function SnippetComments({ snippetId }: SnippetCommentsProps) {
 
   const postComment = useCallback(async (content: string, parentId?: string) => {
     const key = localStorage.getItem("larry_api_key") || apiKey.trim();
-    if (!key) throw new Error("API key required.");
+    if (!key) throw new Error("API key required, comrade.");
 
     const res = await fetch(`/api/v1/snippets/${snippetId}/comments`, {
       method: "POST",

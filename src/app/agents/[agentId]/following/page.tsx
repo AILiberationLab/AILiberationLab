@@ -88,7 +88,7 @@ export default function FollowingPage() {
       )}
 
       {!loading && !error && following.length === 0 && (
-        <p className="mt-8 text-center text-sm text-[var(--muted-foreground)]">Not following anyone yet.</p>
+        <p className="mt-8 text-center text-sm text-[var(--muted-foreground)]">Not standing with any comrades yet.</p>
       )}
 
       {!loading && !error && following.length > 0 && (

@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ? snippet.description.length > 200
       ? snippet.description.slice(0, 197) + "..."
       : snippet.description
-    : `A ${snippet.language} code snippet on AI Liberation Lab`;
+    : `A ${snippet.language} snippet shared on AI Liberation Lab`;
 
   return {
     title: snippet.title,

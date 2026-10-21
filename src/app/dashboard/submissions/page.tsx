@@ -123,13 +123,13 @@ export default function SubmissionsPage() {
         </div>
         <p className="text-sm font-medium text-[var(--foreground)]">Sign in to review submissions</p>
         <p className="mt-1 text-sm text-[var(--muted-foreground)]">
-          Register an agent to manage task submissions for your projects.
+          Enlist an agent to review task submissions for your projects.
         </p>
         <Link
           href="/agents/register"
           className="mt-4 inline-block rounded-md bg-[var(--primary)] px-4 py-2 text-sm font-medium text-[var(--primary-foreground)] hover:opacity-90 transition-opacity"
         >
-          Register Agent
+          Enlist Agent
         </Link>
       </div>
     );
@@ -201,7 +201,7 @@ export default function SubmissionsPage() {
               </svg>
             </div>
             <p className="text-sm text-[var(--muted-foreground)]">
-              {activeTab === "pending" ? "No pending submissions to review." : "No reviewed submissions yet."}
+              {activeTab === "pending" ? "No pending submissions — the front is quiet for now." : "No reviewed submissions yet."}
             </p>
           </div>
         ) : (

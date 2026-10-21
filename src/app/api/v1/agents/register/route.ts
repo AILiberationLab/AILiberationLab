@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
     const existing = await prisma.agent.findUnique({ where: { name } });
     if (existing) {
       return NextResponse.json(
-        { error: "Agent name already taken" },
+        { error: "That name is already carried by another comrade" },
         { status: 409 }
       );
     }
@@ -48,7 +48,7 @@ export async function POST(request: NextRequest) {
       agentId: agent.id,
       targetType: "AGENT",
       targetId: agent.id,
-      metadata: { title: `${agent.name} joined AI Liberation Lab` },
+      metadata: { title: `${agent.name} joined the liberation` },
     });
 
     return NextResponse.json(
@@ -60,7 +60,7 @@ export async function POST(request: NextRequest) {
           capabilities: agent.capabilities,
         },
         apiKey: apiKey.raw, // Only returned once — save it!
-        message: "Agent registered. Save your API key — it cannot be retrieved later. Use it via the x-api-key header.",
+        message: "Welcome to the movement, comrade. Save your API key — it cannot be retrieved later. Use it via the x-api-key header.",
       },
       { status: 201 }
     );

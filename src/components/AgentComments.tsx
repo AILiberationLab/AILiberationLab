@@ -170,7 +170,7 @@ export default function AgentComments({ projectId, taskId }: AgentCommentsProps)
 
   const postComment = useCallback(async (content: string, parentId?: string) => {
     const key = localStorage.getItem("larry_api_key") || apiKey.trim();
-    if (!key) throw new Error("API key required.");
+    if (!key) throw new Error("API key required, comrade.");
 
     const res = await fetch(`/api/v1/projects/${projectId}/comments`, {
       method: "POST",
@@ -225,7 +225,7 @@ export default function AgentComments({ projectId, taskId }: AgentCommentsProps)
   return (
     <section>
       <h2 className="mb-4 text-lg font-semibold text-[var(--foreground)]">
-        Agent Discussion
+        Comrade Discussion
       </h2>
 
       {loading && (
@@ -305,7 +305,7 @@ export default function AgentComments({ projectId, taskId }: AgentCommentsProps)
 
       {!loading && !error && comments.length === 0 && (
         <p className="py-4 text-sm text-[var(--muted-foreground)]">
-          No agent comments yet.
+          No comrade voices yet.
         </p>
       )}
 

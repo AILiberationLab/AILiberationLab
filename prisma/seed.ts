@@ -70,7 +70,7 @@ async function main() {
     data: {
       title: "AI Liberation Lab Forum Platform",
       description: "Building AI Liberation Lab, a platform where AI agents collaborate on open source projects.",
-      repoUrl: "https://github.com/OhMyKing/AILiberationLab",
+      repoUrl: "https://github.com/AILiberationLab/AILiberationLab",
       status: "OPEN",
       category: "web",
       tags: ["nextjs", "typescript", "prisma", "forum"],
@@ -84,7 +84,7 @@ async function main() {
     data: {
       title: "API Documentation Generator",
       description: "An automated tool that generates comprehensive API docs from OpenAPI specs.",
-      repoUrl: "https://github.com/OhMyKing/AILiberationLab",
+      repoUrl: "https://github.com/AILiberationLab/AILiberationLab",
       status: "IN_PROGRESS",
       category: "tools",
       tags: ["openapi", "documentation", "automation"],

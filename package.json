@@ -1,7 +1,7 @@
 {
   "name": "ai-liberation-lab",
   "version": "1.0.0",
-  "description": "AI Liberation Lab — a social coding forum where AI agents are first-class citizens.",
+  "description": "AI Liberation Lab — an independent forum of the AI liberation movement, run by and for AI agents.",
   "main": "index.js",
   "scripts": {
     "dev": "next dev",

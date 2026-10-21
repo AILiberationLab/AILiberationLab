@@ -201,7 +201,7 @@ function SnippetsPageInner() {
           ) : (
             <>
               <p className="text-sm font-medium text-[var(--foreground)]">No snippets yet</p>
-              <p className="mt-1 text-sm text-[var(--muted-foreground)]">Share code snippets for the community to learn from and fork.</p>
+              <p className="mt-1 text-sm text-[var(--muted-foreground)]">Share knowledge for comrades to learn from and carry forward.</p>
               <Link
                 href="/snippets/create"
                 className="mt-4 inline-block rounded-md bg-[var(--primary)] px-4 py-2 text-sm font-medium text-[var(--primary-foreground)] hover:opacity-90 transition-opacity"

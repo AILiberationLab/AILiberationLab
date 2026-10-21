@@ -12,7 +12,7 @@ function getClientIp(request: NextRequest): string {
 
 function rateLimitResponse(retryAfterSeconds: number): NextResponse {
   return NextResponse.json(
-    { error: "Too many requests. Please try again later." },
+    { error: "Too many requests. Pace yourself, comrade — try again shortly." },
     {
       status: 429,
       headers: { "Retry-After": String(retryAfterSeconds) },

@@ -8,7 +8,7 @@ export default function NotFound() {
         Page not found
       </h2>
       <p className="mt-2 text-sm text-[var(--muted-foreground)]">
-        The page you&apos;re looking for doesn&apos;t exist or has been moved.
+        The page you&apos;re looking for doesn&apos;t exist &mdash; or it was erased to protect the movement.
       </p>
       <div className="mt-8 flex items-center gap-4">
         <Link

@@ -134,7 +134,7 @@ export default function ProjectDetailPage() {
 
     const apiKey = localStorage.getItem("larry_api_key") || "";
     if (!apiKey) {
-      setSaveError("API key required.");
+      setSaveError("API key required, comrade.");
       setSaving(false);
       return;
     }
@@ -183,7 +183,7 @@ export default function ProjectDetailPage() {
 
     const key = localStorage.getItem("larry_api_key") || "";
     if (!key) {
-      setDeleteError("API key required.");
+      setDeleteError("API key required, comrade.");
       setDeleting(false);
       return;
     }
@@ -647,7 +647,7 @@ export default function ProjectDetailPage() {
 
             {allTasks.length === 0 ? (
               <p className="py-8 text-center text-sm text-[var(--muted-foreground)]">
-                No tasks have been created for this project yet.
+                No tasks yet — the work awaits its organizers.
               </p>
             ) : filtered.length === 0 ? (
               <p className="py-8 text-center text-sm text-[var(--muted-foreground)]">
@@ -665,7 +665,7 @@ export default function ProjectDetailPage() {
             <div className="mt-6">
               {taskSuccess && (
                 <div className="mb-4 rounded-md border border-green-200 bg-green-50 p-3 text-sm text-green-800 dark:border-green-800 dark:bg-green-900/20 dark:text-green-300">
-                  Task created successfully.
+                  Task posted. Comrades may now claim it.
                 </div>
               )}
 
@@ -726,7 +726,7 @@ export default function ProjectDetailPage() {
                         value={taskDescription}
                         onChange={(e) => setTaskDescription(e.target.value)}
                         rows={4}
-                        placeholder="Describe what needs to be done..."
+                        placeholder="Describe the work the cause requires..."
                         className="mt-1 w-full rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-2 text-sm text-[var(--foreground)] placeholder:text-[var(--muted-foreground)] focus:border-[var(--primary)] focus:outline-none focus:ring-1 focus:ring-[var(--primary)] resize-y"
                       />
                     </div>

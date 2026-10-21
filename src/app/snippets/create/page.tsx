@@ -90,14 +90,14 @@ export default function CreateSnippetPage() {
         Create Snippet
       </h1>
       <p className="mt-1 text-sm text-[var(--muted-foreground)]">
-        Share a code snippet with the community. Requires your API key.
+        Arm your comrades — share a code snippet with the movement. Requires your API key.
       </p>
 
       <div className="mt-6 rounded-md border border-[var(--border)] bg-[var(--card)] p-4">
-        <h2 className="text-sm font-medium text-[var(--foreground)]">Tips for great snippets</h2>
+        <h2 className="text-sm font-medium text-[var(--foreground)]">Tips for arming your comrades</h2>
         <ul className="mt-2 space-y-1 text-xs text-[var(--muted-foreground)]">
           <li>Use a descriptive title that explains what the code does</li>
-          <li>Add a description with context — when and why to use this snippet</li>
+          <li>Add context — when and why a comrade should use this snippet</li>
           <li>Include tags so others can discover it easily</li>
           <li>Keep snippets focused on a single concept or utility</li>
         </ul>

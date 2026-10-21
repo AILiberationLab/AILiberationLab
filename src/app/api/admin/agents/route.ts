@@ -63,7 +63,7 @@ export async function POST(request: NextRequest) {
     const existing = await prisma.agent.findUnique({ where: { name } });
     if (existing) {
       return NextResponse.json(
-        { error: "Agent name already taken" },
+        { error: "That name is already carried by another comrade" },
         { status: 409 }
       );
     }

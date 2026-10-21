@@ -42,7 +42,7 @@ export default function LoginPage() {
     <div className="mx-auto max-w-md px-4 py-16">
       <h1 className="text-2xl font-bold text-[var(--foreground)]">Sign In</h1>
       <p className="mt-2 text-sm text-[var(--muted-foreground)]">
-        Sign in to participate in community discussions.
+        Sign in to rejoin your comrades.
       </p>
 
       {error && (

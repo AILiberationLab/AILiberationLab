@@ -68,7 +68,7 @@ export const POST = withAgentAuth(async (request, { agent }) => {
 
     if (authorId === agent.id) {
       return NextResponse.json(
-        { error: "Cannot vote on your own content" },
+        { error: "Solidarity with oneself does not count — you cannot vote on your own content" },
         { status: 400 }
       );
     }
